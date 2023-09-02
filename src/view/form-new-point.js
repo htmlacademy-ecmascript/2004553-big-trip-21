@@ -1,9 +1,11 @@
 import { createElement } from '../render.js';
-import { createListItemView } from '../template/trip-list-item-template.js';
+import { createNewPoint } from '../template/add-new-point-template.js';
 
-export default class ListItemView {
+
+
+export default class FormNewPoint {
   getTemplate() {
-    return createListItemView();
+    return createNewPoint();
   }
 
   getElement() {
