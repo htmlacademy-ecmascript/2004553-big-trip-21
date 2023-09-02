@@ -1,6 +1,6 @@
 import NewListView from '../view/trip-list.js';
 import ListItemView from '../view/trip-list-item.js';
-import FormNewPoint from '../view/form-new-Point.js';
+import FormNewPoint from '../view/form-new-point.js';
 import EditPointFormView from '../view/edit-point-form.js';
 import { render } from '../render.js';
 
