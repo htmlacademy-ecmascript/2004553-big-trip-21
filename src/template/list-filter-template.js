@@ -1,5 +1,5 @@
 export function createFilterListTemplate() {
-  return /*html*/`
+  return /*html*/ `
   <form class="trip-filters" action="#" method="get">
   <div class="trip-filters__filter">
     <input

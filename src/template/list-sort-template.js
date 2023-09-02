@@ -1,5 +1,5 @@
 export function createSortListTemplate() {
-  return /*html*/`
+  return /*html*/ `
   <form class="trip-events__trip-sort trip-sort" action="#" method="get">
   <div class="trip-sort__item trip-sort__item--day">
     <input

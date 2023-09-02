@@ -1,8 +1,6 @@
 import { createElement } from '../render.js';
 import { createNewPoint } from '../template/add-new-point-template.js';
 
-
-
 export default class FormNewPoint {
   getTemplate() {
     return createNewPoint();
