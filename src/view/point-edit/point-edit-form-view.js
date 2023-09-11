@@ -1,7 +1,10 @@
-import { createElement } from '../render.js';
-import { editPointFormView } from '../template/edit-point-form-template.js';
+import { createElement } from '../../render.js';
+import { editPointFormView } from './point-edit-form-template.js';
 
 export default class EditPointFormView {
+  constructor() {
+  }
+
   getTemplate() {
     return editPointFormView();
   }
