@@ -2,11 +2,9 @@ import { createElement } from '../../render.js';
 import { createListItemView } from './point-template.js';
 
 export default class PointView {
-  constructor({ point, pointDestination }) {
-    this.point = point; 
-    this.pointDestination = pointDestination;
-    console.log(this.pointDestination);
-    console.log(this.point);
+  constructor({ point, destinationName }) {
+    this.point = point;
+    this.destinationName = destinationName;
   }
 
   getTemplate() {

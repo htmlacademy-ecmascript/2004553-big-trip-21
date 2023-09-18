@@ -3,7 +3,7 @@ import { mockOffers } from '../mock/mock';
 export default class OffersModel {
   offers = mockOffers;
 
-  getPoints() {
+  getOffers() {
     return this.offers;
   }
 }

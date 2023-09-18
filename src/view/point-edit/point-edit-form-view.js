@@ -2,11 +2,14 @@ import { createElement } from '../../render.js';
 import { editPointFormView } from './point-edit-form-template.js';
 
 export default class EditPointFormView {
-  constructor() {
+  constructor({ destinationOne }) {
+    this.destinationName = destinationOne;
   }
 
   getTemplate() {
-    return editPointFormView();
+    return editPointFormView({
+      destination: this.destinationName,
+    });
   }
 
   getElement() {
