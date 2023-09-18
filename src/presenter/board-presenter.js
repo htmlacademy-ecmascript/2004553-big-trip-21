@@ -6,7 +6,7 @@ import { render } from '../render.js';
 export default class BoardPresenter {
   boardComponent = new PointListView();
 
-  constructor({ boardContainer, pointsModel, destinationModel, offersModel}) {
+  constructor({ boardContainer, pointsModel, destinationModel, offersModel }) {
     this.boardContainer = boardContainer;
     this.pointsModel = pointsModel;
     this.destinationModel = destinationModel;
@@ -16,13 +16,14 @@ export default class BoardPresenter {
     this.boardPoints = [...this.pointsModel.getPoints()];
     this.destinations = [...this.destinationModel.getDestinations()];
     this.offersModel = [...this.offersModel.getOffers()];
-    console.log(this.offersModel[0]);
 
+    // Константы с нужными кусками данных надеюсь в будущем покажут как это можно по нормальному сделать, а то так как то как будто лишние детали
     const destinationOne = this.destinations[1];
-
+    const cityOfNames = this.destinationModel.getNameCity();
+    //
     render(this.boardComponent, this.boardContainer);
     render(
-      new EditPointFormView({ destinationOne }),
+      new EditPointFormView({ destinationOne, cityOfNames}),
       this.boardComponent.getElement()
     );
 

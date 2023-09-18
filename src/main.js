@@ -15,6 +15,7 @@ const sectionTrip = document.querySelector('.trip-events');
 const pointsModel = new PointsModel(); 
 const destinationModel = new DestinationModel();
 const offersModel = new OffersModel ();
+
 //Создать экземпляр моделей destinatiopn model и offers model 
 
 //Всякие заголовки цены и фильтры в хэдэре

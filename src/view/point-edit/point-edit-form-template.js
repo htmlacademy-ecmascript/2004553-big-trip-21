@@ -1,4 +1,4 @@
-export function editPointFormView({ destination }) {
+export function editPointFormView({ destination, cityOfNames }) {
   const { id, description } = destination;
 
   return /*html*/ `
@@ -177,13 +177,11 @@ export function editPointFormView({ destination }) {
           id="event-destination-1"
           type="text"
           name="event-destination"
-          value="Chamonix"
+          value=""
           list="destination-list-1"
         />
         <datalist id="destination-list-1">
-          <option value="Amsterdam"></option>
-          <option value="Geneva"></option>
-          <option value="Chamonix"></option>
+          ${cityOfNames}
         </datalist>
       </div>
 

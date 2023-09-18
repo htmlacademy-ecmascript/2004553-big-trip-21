@@ -1,14 +1,22 @@
 import { mockDestinations } from '../mock/mock';
 
 export default class DestinationModel {
- destinations = mockDestinations;
+  destinations = mockDestinations;
 
+  getDestinations() {
+    return this.destinations;
+  }
 
- getDestinations () {
-  return this.destinations;
- }
-
-//  getDestinationById (id) {
-//   return this.destinations.find((destination) => destination.id === id);
-//  }
+  getNameCity() {
+    const cityNames = this.destinations
+      .map(
+        (destinationName) => `<option value='${destinationName.name}'></option>`
+      )
+      .join('');
+    return cityNames;
+  }
+  
+  getDestinationById(id) {
+    return this.destinations.find((destination) => destination.id === id);
+  }
 }
