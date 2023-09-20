@@ -12,6 +12,7 @@ export default class BoardPresenter {
     this.destinationModel = destinationModel;
     this.offersModel = offersModel;
   }
+
   init() {
     this.boardPoints = [...this.pointsModel.getPoints()];
     this.destinations = [...this.destinationModel.getDestinations()];
@@ -19,11 +20,20 @@ export default class BoardPresenter {
 
     // Константы с нужными кусками данных надеюсь в будущем покажут как это можно по нормальному сделать, а то так как то как будто лишние детали
     const destinationOne = this.destinations[1];
-    const cityOfNames = this.destinationModel.getNameCity();
+    const destinationNames = this.destinationModel.getDestinationsName();
+    const onePoint = this.boardPoints[0];
+    const offers = this.offersModel;
+
     //
+
     render(this.boardComponent, this.boardContainer);
     render(
-      new EditPointFormView({ destinationOne, cityOfNames}),
+      new EditPointFormView({
+        destinationOne,
+        destinationNames,
+        onePoint,
+        offers,
+      }),
       this.boardComponent.getElement()
     );
 

@@ -2,18 +2,22 @@ import { createElement } from '../../render.js';
 import { editPointFormView } from './point-edit-form-template.js';
 
 export default class EditPointFormView {
-  constructor({ destinationOne, cityOfNames }) {
+  constructor({ destinationOne, destinationNames, onePoint, offers }) {
     this.destinationName = destinationOne;
-    this.cityOfNames = cityOfNames;
+    this.destinationNames = destinationNames;
+    this.onePoint = onePoint;
+    this.offers = offers;
   }
-  
+
   getTemplate() {
     return editPointFormView({
       destination: this.destinationName,
-      cityOfNames: this.cityOfNames,
+      destinationNames: this.destinationNames,
+      onePoint: this.onePoint,
+      offers: this.offers,
     });
   }
- 
+
   getElement() {
     if (!this.element) {
       this.element = createElement(this.getTemplate());

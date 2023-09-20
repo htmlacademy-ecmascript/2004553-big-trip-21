@@ -1,7 +1,7 @@
 const mockPoints = [
   {
     id: 'point-id-1',
-    base_price: 1300,
+    basePrice: 1300,
     date_from: '2019-07-10T22:55:56.845Z',
     date_to: '2019-07-11T11:22:13.375Z',
     destination: 'dest-id-1',
@@ -11,7 +11,7 @@ const mockPoints = [
   },
   {
     id: 'point-id-2',
-    base_price: 1100,
+    basePrice: 1100,
     date_from: '2019-07-10T22:55:56.845Z',
     date_to: '2019-07-11T11:22:13.375Z',
     destination: 'dest-id-2',
@@ -21,7 +21,7 @@ const mockPoints = [
   },
   {
     id: 'point-id-3',
-    base_price: 900,
+    basePrice: 900,
     date_from: '2019-07-10T22:55:56.845Z',
     date_to: '2019-07-11T11:22:13.375Z',
     destination: 'dest-id-3',
