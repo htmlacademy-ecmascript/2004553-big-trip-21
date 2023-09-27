@@ -7,17 +7,8 @@ export default class DestinationModel {
     return this.destinations;
   }
 
-  // getNameCity() {
-  //   const cityNames = this.destinations
-  //     .map(
-  //       (destinationName) => `<option value='${destinationName.name}'></option>`
-  //     )
-  //     .join('');
-  //   return cityNames;
-  // }
-
-  getDestinationsName() {
-    return this.destinations.map((destinationName) => destinationName.name);
+  getDestinationsNames() {
+    return this.destinations.map((destination) => destination.name);
   }
 
   getDestinationById(id) {

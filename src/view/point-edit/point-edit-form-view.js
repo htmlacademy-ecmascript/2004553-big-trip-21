@@ -1,5 +1,5 @@
 import { createElement } from '../../render.js';
-import { editPointFormView } from './point-edit-form-template.js';
+import { createPointFormTemplate } from './point-edit-form-template.js';
 
 export default class EditPointFormView {
   constructor({ destinationOne, destinationNames, onePoint, offers }) {
@@ -10,7 +10,7 @@ export default class EditPointFormView {
   }
 
   getTemplate() {
-    return editPointFormView({
+    return createPointFormTemplate({
       destination: this.destinationName,
       destinationNames: this.destinationNames,
       onePoint: this.onePoint,

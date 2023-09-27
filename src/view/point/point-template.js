@@ -1,18 +1,38 @@
-export function createListItemView({ point, destinationName }) {
+function selectedOffersTemplate(selectedOffers) {
+  return selectedOffers
+    .map((offer) => {
+      return `<li class="event__offer"><span class="event__offer-title">${offer.offers.title}</span>
+      &plus;&euro;&nbsp;
+      <span class="event__offer-price">${offer.offers.price}</span>
+    </li>`;
+    })
+    .join('');
+}
+
+export function createPointTemplate({
+  point,
+  destinationName,
+  selectedOffers,
+}) {
   const {
     id,
     basePrice,
-    date_from,
-    date_to,
+    dateFrom,
+    dateTo,
     destination,
-    is_favorite,
+    isFavorite,
     offers,
     type,
   } = point;
 
-  const { name } = destinationName;
+  const filtersOffer = selectedOffers.filter((offer) => {
+    return offer.type === type;
+  })
 
-  const isFavoriteClassName = is_favorite ? 'event__favorite-btn--active' : '';
+  console.log(filtersOffer);
+
+  const { name } = destinationName;
+  const isFavoriteClassName = isFavorite ? 'event__favorite-btn--active' : '';
 
   return /*html*/ ` 
   <li class="trip-events__item">
@@ -41,11 +61,7 @@ export function createListItemView({ point, destinationName }) {
     </p>
     <h4 class="visually-hidden">Offers:</h4>
     <ul class="event__selected-offers">
-      <li class="event__offer">
-        <span class="event__offer-title">Order Uber</span>
-        &plus;&euro;&nbsp;
-        <span class="event__offer-price">30</span>
-      </li>
+    ${selectedOffersTemplate(filtersOffer)}
     </ul>
     <button
       class="event__favorite-btn ${isFavoriteClassName}"

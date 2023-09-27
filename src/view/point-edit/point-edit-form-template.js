@@ -1,4 +1,27 @@
-export function editPointFormView({
+function createOffersTemplate(allOffers, selectedOffers) {
+  return allOffers
+    .map((offer) => {
+      return `
+      <div class="event__offer-selector">
+        <input
+          class="event__offer-checkbox visually-hidden"
+          id="${offer.id}"
+          type="checkbox"
+          name="${offer.id}"
+          ${selectedOffers.includes(offer.id) ? 'checked' : ''}
+        />
+        <label class="event__offer-label" for="${offer.id}">
+          <span class="event__offer-title">${offer.title}</span>
+          &plus;&euro;&nbsp;
+          <span class="event__offer-price">${offer.price}</span>
+        </label>
+      </div>
+      `;
+    })
+    .join('');
+}
+
+export function createPointFormTemplate({
   destination,
   destinationNames,
   onePoint,
@@ -7,32 +30,13 @@ export function editPointFormView({
   const { id, description } = destination;
   const { basePrice, type } = onePoint;
 
-  const getDestinationsNames = function () {
-    return destinationNames.map((name) => `<option value="${name}"></option>`);
-  };
+  function createDestinationsOptionsTemplate() {
+    return destinationNames
+      .map((name) => `<option value="${name}"></option>`)
+      .join('');
+  }
 
-  const findOffers = offers.find((offer) => offer.type === type);
-
-  const getOffers = findOffers.offers
-    .map(function (findOffer) {
-      return `
-  <div class="event__available-offers">
-        <div class="event__offer-selector">
-          <input
-            class="event__offer-checkbox visually-hidden"
-            id="${findOffer.id}"
-            type="checkbox"
-            name="event-offer-luggage"
-          />
-          <label class="event__offer-label" for="event-offer-luggage-1">
-            <span class="event__offer-title">${findOffer.title}</span>
-            &plus;&euro;&nbsp;
-            <span class="event__offer-price">${findOffer.price}</span>
-          </label>
-        </div>
-        `;
-    })
-    .join('');
+  const offersByType = offers.find((offer) => offer.type === type).offers;
 
   return /*html*/ `
   <li class="trip-events__item">
@@ -201,7 +205,7 @@ export function editPointFormView({
       <div class="event__field-group event__field-group--destination">
         <label
           class="event__label event__type-output"
-          for="event-destination-1"
+          for="${id}"
         >
           ${type}
         </label>
@@ -214,7 +218,7 @@ export function editPointFormView({
           list="destination-list-1"
         />
         <datalist id="destination-list-1">
-        ${getDestinationsNames()}
+        ${createDestinationsOptionsTemplate()}
         </datalist>
       </div>
 
@@ -263,9 +267,9 @@ export function editPointFormView({
         <h3 class="event__section-title event__section-title--offers">
           Offers
         </h3>
-     
         <div class="event__available-offers">
-          ${getOffers}
+          ${createOffersTemplate(offersByType, onePoint.offers)}
+        </div>
       </section>
    
       <section class="event__section event__section--destination">

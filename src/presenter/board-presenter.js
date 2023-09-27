@@ -16,14 +16,12 @@ export default class BoardPresenter {
   init() {
     this.boardPoints = [...this.pointsModel.getPoints()];
     this.destinations = [...this.destinationModel.getDestinations()];
-    this.offersModel = [...this.offersModel.getOffers()];
+    this.offersModels = [...this.offersModel.getOffers()];
 
     // Константы с нужными кусками данных надеюсь в будущем покажут как это можно по нормальному сделать, а то так как то как будто лишние детали
     const destinationOne = this.destinations[1];
-    const destinationNames = this.destinationModel.getDestinationsName();
-    const onePoint = this.boardPoints[0];
-    const offers = this.offersModel;
-
+    const destinationNames = this.destinationModel.getDestinationsNames();
+    const offers = this.offersModels;
     //
 
     render(this.boardComponent, this.boardContainer);
@@ -31,19 +29,21 @@ export default class BoardPresenter {
       new EditPointFormView({
         destinationOne,
         destinationNames,
-        onePoint,
+        onePoint: this.boardPoints[0],
         offers,
       }),
       this.boardComponent.getElement()
     );
 
-    for (let i = 0; i < this.boardPoints.length; i++) {
+    for (let i = 1; i < this.boardPoints.length; i++) {
       const point = this.boardPoints[i];
       const destinationName = this.destinations[i];
+
       render(
         new PointView({
           point,
           destinationName,
+          offers,
         }),
         this.boardComponent.getElement()
       );
