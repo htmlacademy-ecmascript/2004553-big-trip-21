@@ -38,12 +38,15 @@ export default class BoardPresenter {
     for (let i = 1; i < this.boardPoints.length; i++) {
       const point = this.boardPoints[i];
       const destinationName = this.destinations[i];
+      // debugger;
+      const offerSelectType = this.offersModel.getOffersByType(point.type).offers.filter((offer) => point.offers.includes(offer.id));
 
       render(
         new PointView({
           point,
           destinationName,
           offers,
+          offerSelectType,
         }),
         this.boardComponent.getElement()
       );

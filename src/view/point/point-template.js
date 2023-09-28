@@ -1,9 +1,9 @@
 function selectedOffersTemplate(selectedOffers) {
   return selectedOffers
     .map((offer) => {
-      return `<li class="event__offer"><span class="event__offer-title">${offer.offers.title}</span>
+      return `<li class="event__offer"><span class="event__offer-title">${offer.title}</span>
       &plus;&euro;&nbsp;
-      <span class="event__offer-price">${offer.offers.price}</span>
+      <span class="event__offer-price">${offer.price}</span>
     </li>`;
     })
     .join('');
@@ -12,7 +12,7 @@ function selectedOffersTemplate(selectedOffers) {
 export function createPointTemplate({
   point,
   destinationName,
-  selectedOffers,
+  offerSelectType,
 }) {
   const {
     id,
@@ -25,11 +25,7 @@ export function createPointTemplate({
     type,
   } = point;
 
-  const filtersOffer = selectedOffers.filter((offer) => {
-    return offer.type === type;
-  })
-
-  console.log(filtersOffer);
+  console.log(offerSelectType);
 
   const { name } = destinationName;
   const isFavoriteClassName = isFavorite ? 'event__favorite-btn--active' : '';
@@ -61,7 +57,7 @@ export function createPointTemplate({
     </p>
     <h4 class="visually-hidden">Offers:</h4>
     <ul class="event__selected-offers">
-    ${selectedOffersTemplate(filtersOffer)}
+     ${selectedOffersTemplate(offerSelectType)}
     </ul>
     <button
       class="event__favorite-btn ${isFavoriteClassName}"

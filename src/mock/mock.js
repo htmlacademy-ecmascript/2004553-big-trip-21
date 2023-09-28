@@ -16,7 +16,7 @@ const mockPoints = [
     dateTo: '2019-07-11T11:22:13.375Z',
     destination: 'dest-id-2',
     isFavorite: true,
-    offers: ['offer-id-3'],
+    offers: ['offer-id-3', 'offer-id-9'],
     type: 'bus',
   },
   {
@@ -26,7 +26,7 @@ const mockPoints = [
     dateTo: '2019-07-11T11:22:13.375Z',
     destination: 'dest-id-3',
     isFavorite: false,
-    offers: ['offer-id-7'],
+    offers: ['offer-id-7','offer-id-8'],
     type: 'train',
   },
 ];
@@ -47,7 +47,7 @@ const mockDestinations = [
   {
     id: 'dest-id-2',
     description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat et neque in eleifend. Fusce tempus maximus sem. Fusce rutrum vel tortor eu lobortis. Proin venenatis, lorem nec interdum sagittis, mi nulla bibendum justo, ut aliquam ligula felis vitae neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat et neque in eleifend. Fusce tempus maximus sem. Fusce rutrum vel tortor eu lobortis. Proin venenatis, lorem nec interdum sagittis, mi nulla bibendum justo, ut aliquam ligula felis vitae neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti.',
     name: 'Berlin',
     pictures: [
       {
@@ -99,6 +99,11 @@ const mockOffers = [
         title: 'Child seat',
         price: 420,
       },
+      {
+        id: 'offer-id-9',
+        title: 'Comfortable bus',
+        price: 650,
+      },
     ],
   },
   {
@@ -108,6 +113,11 @@ const mockOffers = [
         id: 'offer-id-7',
         title: 'Econom',
         price: 170,
+      },
+      {
+        id: 'offer-id-8',
+        title: 'Electric train',
+        price: 390,
       },
     ],
   },
