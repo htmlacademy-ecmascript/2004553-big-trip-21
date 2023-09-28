@@ -1,9 +1,9 @@
-import { createElement } from '../render.js';
-import { createListItemView } from '../template/trip-list-item-template.js';
+import { createElement } from '../../render.js';
+import { createFilterListTemplate } from './list-filter-template.js';
 
-export default class ListItemView {
+export default class FilterListView {
   getTemplate() {
-    return createListItemView();
+    return createFilterListTemplate();
   }
 
   getElement() {

@@ -1,9 +1,10 @@
-import { createElement } from '../render.js';
-import { tripInfoView } from '../template/trip-info-template.js';
+import { createElement } from '../../render.js';
+import { createListTemplate } from './point-list-template.js';
 
-export default class TripInfoView {
+
+export default class PointListView {
   getTemplate() {
-    return tripInfoView();
+    return createListTemplate();
   }
 
   getElement() {

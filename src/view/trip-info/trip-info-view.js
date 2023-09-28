@@ -1,9 +1,9 @@
-import { createElement } from '../render.js';
-import { createFilterListTemplate } from '../template/list-filter-template.js';
+import { createElement } from '../../render.js';
+import { tripInfoView } from './trip-info-template.js';
 
-export default class FilterListView {
+export default class TripInfoView {
   getTemplate() {
-    return createFilterListTemplate();
+    return tripInfoView();
   }
 
   getElement() {
